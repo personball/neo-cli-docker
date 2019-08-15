@@ -11,7 +11,9 @@ RUN yum -y install epel-release \
 	
 RUN cd /home/ \
 	&& git clone https://github.com/neo-project/neo-cli.git \
-	&& cd neo-cli/neo-cli \
+	&& cd neo-cli \
+	&& git checkout v2.10.1 \
+	&& cd neo-cli \
 	&& dotnet restore \
 	&& dotnet publish -c Release \
 	&& cp -r /home/neo-cli/neo-cli/bin/Release/netcoreapp2.1/publish/ /home/cli/
